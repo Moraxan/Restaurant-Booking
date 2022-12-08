@@ -1,0 +1,45 @@
+﻿<Window x:Class="Restaurant_Booking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant_Booking"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FF3C3CA4">
+    <Grid>
+
+        <ListBox x:Name="ListView" Background="#FF417BB1" HorizontalAlignment="Left" Width="252" SelectionChanged="ListView_SelectionChanged">
+            
+        </ListBox>
+
+        <Button x:Name="BookButton" Content="Boka" HorizontalAlignment="Center" Margin="0,266,0,0" VerticalAlignment="Top" Width="146" Click="BookButton_Click"/>
+        <Button x:Name="UnBookButton" Content="Avboka" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Width="146" Click="UnBookButton_Click"/>
+        <Button x:Name="ShowButton" Content="Visa bokningar" HorizontalAlignment="Left" Margin="514,266,0,0" VerticalAlignment="Top" Width="146" Click="ShowButton_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="200" Margin="287,34,0,0" Stroke="Black" VerticalAlignment="Top" Width="453" Fill="#FF417BB1"/>
+        <TextBox x:Name="GuestName" HorizontalAlignment="Left" Margin="526,63,0,0" TextWrapping="Wrap" Text="Skriv gästens namn:" VerticalAlignment="Top" Width="191" Height="22" TextChanged="GuestName_TextChanged"/>
+        <ComboBox x:Name="TimeSelect" SelectedIndex="0" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_SelectionChanged" Height="22">
+            <ComboBoxItem Visibility="Collapsed" Content="Välj tid:"/>
+            <ComboBoxItem Content="18.00"/>
+            <ComboBoxItem Content="19:00"/>
+            <ComboBoxItem Content="20.00"/>
+            <ComboBoxItem Content="21.00"/>
+            <ComboBoxItem Content="22.00"/>
+            <ComboBoxItem Content="23.00"/>
+        </ComboBox>
+        <ComboBox x:Name="TableSelect" SelectedIndex="0"  HorizontalAlignment="Left" Margin="526,112,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_SelectionChanged" Height="22">
+            <ComboBoxItem Visibility="Collapsed" Content="Välj bord:"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox>
+        <DatePicker x:Name="DateSelect"  HorizontalAlignment="Left" Margin="327,62,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" IsDropDownOpen="True"/>
+        
+
+
+
+
+
+    </Grid>
+</Window>
