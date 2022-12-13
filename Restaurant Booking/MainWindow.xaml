@@ -19,12 +19,12 @@
         <TextBox x:Name="GuestName" HorizontalAlignment="Left" Margin="526,63,0,0" TextWrapping="Wrap" Text="Skriv gästens namn:" VerticalAlignment="Top" Width="191" Height="22" TextChanged="GuestName_TextChanged"/>
         <ComboBox x:Name="TimeSelect" SelectedIndex="0" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_SelectionChanged" Height="22">
             <ComboBoxItem Visibility="Collapsed" Content="Välj tid:"/>
-            <ComboBoxItem Content="18.00"/>
+            <ComboBoxItem Content="18:00"/>
             <ComboBoxItem Content="19:00"/>
-            <ComboBoxItem Content="20.00"/>
-            <ComboBoxItem Content="21.00"/>
-            <ComboBoxItem Content="22.00"/>
-            <ComboBoxItem Content="23.00"/>
+            <ComboBoxItem Content="20:00"/>
+            <ComboBoxItem Content="21:00"/>
+            <ComboBoxItem Content="22:00"/>
+            <ComboBoxItem Content="23:00"/>
         </ComboBox>
         <ComboBox x:Name="TableSelect" SelectedIndex="0"  HorizontalAlignment="Left" Margin="526,112,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="ComboBox_SelectionChanged" Height="22">
             <ComboBoxItem Visibility="Collapsed" Content="Välj bord:"/>

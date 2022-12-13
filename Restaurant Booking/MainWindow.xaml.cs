@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -57,27 +58,42 @@ namespace Restaurant_Booking
 
         private void BookButton_Click(object sender, RoutedEventArgs e)
         {
-            string namn = GuestName.Text; //Här vill jag dra ut till en egen klass, för att få det cleanare, men får ListBoxen out of scope.
-            DateTime date = DateTime.Parse(DateSelect.Text);
-            string time = TimeSelect.Text;
-            string table = TableSelect.Text;
-
-            BookingCheck.Check();
-
-
-            var newBooking = new BookingConstructor(namn, date, time, table);
-            ListCreator.BookingsList.Add(newBooking);
-
-
-            ListView.Items.Add($"Namn: {newBooking.Name} Datum: {newBooking.Date} Tid: {newBooking.Time} Bord: {newBooking.Table}");
-
-            ResetFields();
             
+            try
+            {
+                string namn = GuestName.Text; //Här vill jag dra ut till en egen klass, för att få det cleanare, men får ListBoxen out of scope.
+                DateTime date = DateSelect.SelectedDate.Value;
+                string time = TimeSelect.Text;
+                string table = TableSelect.Text;
+                var newBooking = new Booking(namn, date, time, table);
+                if (ListCreator.BookingsList.Where(x => x.Date == newBooking.Date && x.Time == newBooking.Time && x.Table == newBooking.Table).Any())//Lambdauttryck går även att lösa med att kolla listan mot ListCreator.BookingList
+                {
+                    MessageBox.Show("Bokningen går inte genomföra på grund av dubbelbokning. Var vänlig försök igen.");
+
+                }
+                else
+                {
+
+                    ListView.Items.Add($"Namn: {newBooking.Name} Datum: {newBooking.Date} Tid: {newBooking.Time} Bord: {newBooking.Table}");
+                    ListCreator.BookingsList.Add(newBooking);
+                    ResetFields();
+                }
+            }
+            catch(Exception ex)  
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+                      
+                        
+           
+                                           
+           
         }
 
         public void ShowBookings() //Den här hade jag velat dra ut till en separat klass, för att få appen mer clean, men då blir ListBoxen(ListView) out of scope.
         {
-            foreach (BookingConstructor item in ListCreator.BookingsList) //Här itererar jag genom de bokningar som finns.
+            foreach (Booking item in ListCreator.BookingsList) //Här itererar jag genom de bokningar som finns.
             {
                 ListView.Items.Add($"Namn: {item.Name} Datum: {item.Date} Tid: {item.Time} Bord: {item.Table}");
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Booking
 {
-    internal interface IBooking
+    internal interface IBooking //Ett interface för bokningarna
     {
         public string Name { get; set; }
         public DateTime Date { get; set; }
